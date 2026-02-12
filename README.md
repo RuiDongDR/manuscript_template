@@ -45,4 +45,5 @@ When updating this template, please ensure that any new mathematical symbols or 
 
 
 **Author:** Rui Dong, Gao Wang
+
 **Updated:** February 12, 2026
