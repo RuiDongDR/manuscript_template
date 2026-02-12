@@ -1,0 +1,34 @@
+\section{Introduction}
+The introduction provides context for the study. You can cite papers using the \texttt{biblatex} system like this: \cite{wang2020simple}. Use the introduction to define the problem and state your primary contributions.
+
+\section{Results}
+This section describes the findings of the study. 
+
+\subsection{Mathematical Notation and Bold Vectors}
+We can use the custom macros for bold vectors and matrices. For example, let $\bx$ be our input vector and $\bbeta$ be the vector of coefficients. The linear model is often written as:
+\begin{equation}
+    y = X \beta + \epsilon
+\end{equation}
+Note how we use \hf{highlighter colors} to draw attention to specific terms or critical results during the drafting phase.
+
+\subsection{Data Analysis and Observations}
+\label{sec:obs}
+This is a subsection for detailed analysis. 
+
+\rmk{Remark: You can use the remark command to leave meta-comments about the narrative flow, such as reminding yourself that this section needs to link back to the methodology.}
+
+We can refer back to specific equations or sections easily. For instance, \cref{sec:obs} contains our primary observations.
+
+\subsection{Collaborative Notes}
+During the writing process, different authors can leave feedback directly in the text:
+\begin{itemize}
+    \item \inda{Author A: We should double-check the p-values in this paragraph.}
+    \item \indb{Author B: I have updated the figure to reflect the new dataset.}
+    \item \done{This paragraph has been proofread and is ready for submission.}
+\end{itemize}
+
+\section{Discussion}
+The discussion interprets the results in the context of the broader field. 
+
+You may want to highlight the limitations of the current study or suggest directions for future work. If you have a complex thought that requires a specific call-out, the remark command remains useful:
+\rmk{Final Check: Ensure all citations in this section are consistent with the main bibliography.}

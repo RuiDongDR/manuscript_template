@@ -1,0 +1,45 @@
+\input{preamble}
+\input{macros}
+
+\title{Template}
+\author{Gao Wang}
+
+\begin{document}
+    \maketitle
+
+    \setstretch{1.15}
+    \pagenumbering{arabic}
+    \linenumbers % Comment out if you don't want line numbers
+
+    % --- MAIN ARTICLE ---
+    \begin{refsection}
+        % -------- Abstract: no section numbers --------
+        \setcounter{secnumdepth}{0}
+        \input{contents/abstract}
+        
+        % -------- Main text starts from Section 1 by default --------
+        \setcounter{secnumdepth}{3} % Comment out this line if you don't want section numbers, or set to \setcounter{secnumdepth}{0} (same as above)
+        \input{contents/main_text}
+        \newpage
+
+        % -------- Online methods: no section numbers --------
+        \setcounter{secnumdepth}{0}
+        \input{contents/online_methods}
+        \newpage
+
+        % -------- Main Bibliography  --------
+        \begin{singlespace}
+            \printbibliography[title={References}]
+        \end{singlespace}
+    \end{refsection}
+    
+    % --- SUPPLEMENTARY MATERIAL ---
+    \startsupplement
+    \begin{refsection}
+        \input{contents/supplementary_notes}
+        \begin{singlespace}
+            \printbibliography[title={References for Supplementary Notes}]
+        \end{singlespace}
+    \end{refsection}
+
+\end{document}

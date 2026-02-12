@@ -1,0 +1,97 @@
+%%% ------------ 1. CORE & LAYOUT ------------ %%%
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{authblk}      % Author affiliations
+\usepackage{setspace}     % Linespacing
+\usepackage{lineno}       % Line numbering
+\usepackage{csquotes}     % Context-sensitive quotes
+\usepackage{ragged2e}     % Improved alignment
+\setlength{\RaggedRightParindent}{\parindent}
+
+%%% ------------ 2. TYPOGRAPHY & COLORS ------------ %%%
+\usepackage{fontspec}     % Requires XeLaTeX. In overleaf, on upper-left, File -> Settings -> Compiler, then select XeLaTex
+\setmainfont{Arial}
+\usepackage[dvipsnames]{xcolor}
+
+% Define Theme Colors
+\definecolor{sectioncolor}{HTML}{434343}
+\definecolor{subsectioncolor}{HTML}{666666}
+\definecolor{cumcBlue}{RGB}{0, 51, 160} % Example CUMC Blue
+\definecolor{cumcRed}{RGB}{206, 32, 41}  % Example CUMC Red
+
+%%% ------------ 3. MATH & ALGORITHMS ------------ %%%
+\usepackage{amsmath, amsthm, amssymb, amsfonts, bm, bbm}
+\usepackage{comment}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+%%% ------------ 4. FIGURES, TABLES & TIKZ ------------ %%%
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs, multirow, rotating}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc}
+
+\graphicspath{{./main_figs/}{./suppl_figs/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.JPG,.png,.PNG,.eps,.tiff}
+
+% Caption Styling
+\usepackage[labelfont=bf, textfont=bf, singlelinecheck=off, textfont=footnotesize]{caption}
+\DeclareCaptionLabelFormat{bold}{\textbf{(#2)}}
+\captionsetup{subrefformat=bold}
+\renewcommand{\thesubfigure}{\Alph{subfigure}}
+
+%%% ------------ 5. SECTION STYLING ------------ %%%
+\usepackage{titlesec}
+\titleformat{\section}{\color{sectioncolor}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{subsectioncolor}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+%%% ------------ 6. CROSS-REFERENCING ------------ %%%
+% Hyperref should usually be loaded late
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue, breaklinks=true]{hyperref}
+% Cleveref MUST be loaded after hyperref
+\usepackage[capitalise, noabbrev, nameinlink]{cleveref}
+
+\crefdefaultlabelformat{#2\textbf{#1}#3}
+\Crefname{figure}{\textbf{Figure}}{\textbf{Figures}}
+\Crefname{section}{\textbf{Section}}{\textbf{Sections}}
+\Crefname{table}{\textbf{Table}}{\textbf{Tables}}
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefpairconjunction}{, }
+\newcommand{\creflastconjunction}{, }
+\newcommand{\crefmiddleconjunction}{, }
+
+%%% ------------ 7. BIBLIOGRAPHY ------------ %%%
+\usepackage[sorting=none, backend=biber, style=numeric-comp, maxbibnames=10, minbibnames=3, maxcitenames=2, giveninits=true, natbib=true, url=false, hyperref=true]{biblatex}
+\addbibresource{references.bib}
+
+%%% ------------ 8. UTILITY HELPERS ------------ %%%
+\usepackage{changepage}
+\usepackage{enumitem}
+\usepackage{pgffor}
+\usepackage{alphalph}
+\usepackage{xspace}
+
+\newcommand{\labelphantom}[1]{%
+  \parbox{0pt}{\phantomsubcaption\label{#1}}%
+}
+
+% Command to switch to Supplementary style
+\newcommand{\startsupplement}{
+    \newpage
+    \resetlinenumber
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \setcounter{subsection}{0}
+    \setcounter{subsubsection}{0}
+    \setcounter{equation}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \renewcommand{\thesection}{S\arabic{section}}
+    \renewcommand{\theequation}{S\arabic{equation}}
+    \renewcommand{\thefigure}{S\arabic{figure}}
+    \renewcommand{\thetable}{S\arabic{table}}
+    \setcounter{secnumdepth}{3}
+}

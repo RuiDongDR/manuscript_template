@@ -1,0 +1,37 @@
+\section{Methods}
+
+\subsection{Statistical Model}
+We modeled the relationship between the response vector $\by$ and the design matrix $\bX$ using a linear framework. Following our custom notation, let:
+\begin{equation}
+    \by = \bX \bbeta + \bepsilon
+\end{equation}
+where $\by \in \mathbb{R}^n$ is the observed outcome, $\bX$ is a matrix of covariates $n \times p$ and $\bbeta$ represents the vector of effect sizes. We assume that the error term $\bepsilon$ follows a multivariate normal distribution $\bepsilon \sim N(\mathbf{0}, \sigma^2 \bI)$.
+
+\subsection{Computational Algorithm}
+The estimation of $\bbeta$ is performed using an iterative procedure. Below is a template for representing your methodology in pseudocode:
+
+\begin{algorithm}
+\caption{Estimation Procedure}\label{alg:estimation}
+\begin{algorithmic}[1]
+\Procedure{Optimize}{$\by, \bX$}
+    \State Initialize $\bbeta^{(0)}$ with random values
+    \While{not converged}
+        \State Compute gradient $\nabla L(\bbeta)$
+        \State Update $\bbeta^{(t+1)} \gets \bbeta^{(t)} - \eta \nabla L(\bbeta)$
+    \EndWhile
+    \State \textbf{return} $\bbeta^*$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Implementation Details}
+\rmk{Technical Note: All simulations were implemented in \texttt{R v4.5} using the \texttt{ggplot2} and \texttt{data.table} libraries. Code is available at \url{https://github.com/gaow/susieR}.}
+
+Our approach utilizes the properties of the matrix $\bS = \bX^T \bX$ to ensure computational efficiency. We handle high-dimensional cases where $p > n$ by applying the penalty term $\lambda \|\bbeta\|_2$.
+
+\subsection{Data Preprocessing}
+\begin{enumerate}
+    \item \textbf{Normalization}: Inputs were centered and scaled to unit variance.
+    \item \textbf{Filtering}: Features with more than 20\% missing values were excluded.
+    \item \textbf{Imputation}:  Remaining missing values in $\bX$ were filled using the mean value of the column.
+\end{enumerate}

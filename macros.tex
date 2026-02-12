@@ -1,0 +1,62 @@
+%%% ------------ TEXT ANNOTATIONS ------------ %%%
+
+% Remark command: slanted, colored, with vertical spacing
+\newcommand{\rmk}[1]{%
+  \par\addvspace{0.8em}%
+  {\color{cumcBlue}\textbf{\textsl{#1}}}%
+  \par\addvspace{0.8em}%
+}
+
+% Highlight command
+\newcommand{\hf}[1]{{\color{cumcRed}\textbf{#1}}}
+
+%%% ------------ CUSTOM ENVIRONMENTS FOR DIFFERENT INDIVIDUALS ------------ %%%
+
+% Red text environment
+\newenvironment{indaenv}{\color{red}}{}
+\newcommand{\inda}[1]{\begin{indaenv}#1\end{indaenv}}
+
+% Blue text environment
+\newenvironment{indbenv}{\color{blue}}{}
+\newcommand{\indb}[1]{\begin{indbenv}#1\end{indbenv}}
+
+% Gray/Done environment
+\newenvironment{doneenv}{\color{gray}}{}
+\newcommand{\done}[1]{\begin{doneenv}#1\end{doneenv}}
+
+%%% ------------ MATH SHORTHANDS (BOLD VECTORS) ------------ %%%
+
+% Latin Bold
+\newcommand{\bb}{\bm{b}}
+\newcommand{\bd}{\bm{d}}
+\newcommand{\bfv}{\bm{f}} % changed from \bf as \bf is a legacy TeX command
+\newcommand{\bh}{\bm{h}}
+\newcommand{\bp}{\bm{p}}
+\newcommand{\bs}{\bm{s}}
+\newcommand{\bx}{\bm{x}}
+\newcommand{\by}{\bm{y}}
+\newcommand{\bz}{\bm{z}}
+
+% Greek Bold
+\newcommand{\bbeta}{\bm{\beta}}
+\newcommand{\brho}{\bm{\rho}}
+\newcommand{\bomega}{\bm{\omega}}
+\newcommand{\bzeta}{\bm{\zeta}}
+\newcommand{\bZeta}{\bm{\Zeta}}
+\newcommand{\bepsilon}{\bm{\epsilon}} 
+\newcommand{\bvarepsilon}{\bm{\varepsilon}} 
+\newcommand{\btheta}{\bm{\theta}}       
+\newcommand{\bsigma}{\bm{\sigma}}
+\newcommand{\bSigma}{\bm{\Sigma}}       
+
+% Latin Bold Uppercase
+\newcommand{\bD}{\bm{D}}
+\newcommand{\bF}{\bm{F}}
+\newcommand{\bH}{\bm{H}}
+\newcommand{\bI}{\bm{I}}
+\newcommand{\bP}{\bm{P}}
+\newcommand{\bR}{\bm{R}}
+\newcommand{\bS}{\bm{S}}
+\newcommand{\bX}{\bm{X}}
+\newcommand{\bY}{\bm{Y}}
+\newcommand{\bZ}{\bm{Z}}
