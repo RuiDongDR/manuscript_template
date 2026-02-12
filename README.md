@@ -42,3 +42,7 @@ During the drafting phase, use the highlighter and remark features to flag criti
 
 ## 🤝 Lab Contribution
 When updating this template, please ensure that any new mathematical symbols or software citations are added to the global definitions to maintain consistency across all lab publications.
+
+
+**Author:** Rui Dong, Gao Wang
+**Updated:** February 12, 2026
